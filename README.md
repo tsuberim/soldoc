@@ -87,4 +87,4 @@ options.json
 
 This project needs contributors!
 Pull requests are very welcome and needed.
-Check out issues with label `help wanted` to get started.
+Check out [issues with label `help wanted`](https://github.com/dev-matan-tsuberi/soldoc/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) to get started.
