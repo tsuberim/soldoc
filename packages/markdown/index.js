@@ -30,8 +30,6 @@ module.exports = (filepath, contractName, info, opts) => {
     };
 
     const params = (obj) => {
-        if(!obj.name)
-            console.log('params',obj);
         const param = (name, p, i) =>
             `${i+1}. **${name}** *of type \`${p.type}\`*${optional(p.details, details => `${N}    > ${details}`)}`
         ;
@@ -41,8 +39,6 @@ module.exports = (filepath, contractName, info, opts) => {
             }${Object.keys(obj.params).map((k,i) => param(k,obj.params[k],i)).join(N)}${N
             }`;
 
-        if(!obj.name)
-            console.log('content',content);
         return content;
     }
 
