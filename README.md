@@ -1,6 +1,6 @@
-[![npm version](https://badge.fury.io/js/%40soldoc%2Fsoldoc.svg)](https://badge.fury.io/js/%40soldoc%2Fsoldoc)
-
 # SolDoc
+
+[![npm version](https://badge.fury.io/js/%40soldoc%2Fsoldoc.svg)](https://badge.fury.io/js/%40soldoc%2Fsoldoc)
 
 > A documentation generator for solidity projects, inspired by [TypeDoc](http://typedoc.org/).
 
