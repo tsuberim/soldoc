@@ -31,9 +31,13 @@ Produces the following output:
 > A simulator for Bug Bunny, the most famous Rabbit
 > Author: Warned Bros
 
+
 **Execution cost**: less than 94 gas
+
 **Deployment cost**: less than 49600 gas
+
 **Combined cost**: less than 49694 gas
+
 
 
 
@@ -42,8 +46,11 @@ Produces the following output:
 > A simulator for Bug Bunny, the most famous Rabbit
 > Author: Warned Bros
 
+
 **Execution cost**: No bound available
+
 **Attributes**: constant
+
 
 Params:
 

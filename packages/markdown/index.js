@@ -9,11 +9,11 @@ module.exports = (filepath, contractName, info, opts) => {
         }${optional(info.notice, notice => `> User doc: ${notice}${N}`)}${''
         }${optional(info.details, details => `> Dev doc: ${details}${N}`)}${''
         }${optional(info.author, author => `> Author: ${author}${N}`)}${''
-        }`
+        }${N}`
     ;
 
     const gas = (obj) =>
-        `**Execution cost**: ${obj.executionCost ? `less than ${obj.executionCost} gas` : 'No bound available'}`
+        `**Execution cost**: ${obj.executionCost ? `less than ${obj.executionCost} gas` : 'No bound available'}${N}`
     ;
 
     const attrs = (info) => {
@@ -26,7 +26,7 @@ module.exports = (filepath, contractName, info, opts) => {
             arr.push('view');
         if(info.anonymous || info.stateMutabillity === 'anonymous')
             arr.push('anonymous');
-        return arr.length ? `**Attributes**: ${arr.join(' | ')}${N}` : '';
+        return arr.length ? `**Attributes**: ${arr.join(' | ')}${N}${N}` : '';
     };
 
     const params = (obj) => {
@@ -100,8 +100,8 @@ module.exports = (filepath, contractName, info, opts) => {
         }${optional(opts.repoUrl, repoUrl => `[see the source](${repoUrl}/${filepath})${N}`)}${''
         }${docs(info)}${N
         }${gas(info)}${N
-        }**Deployment cost**: ${info.deploymentCost ? `less than ${info.deploymentCost} gas` : 'No bound available'}${N
-        }**Combined cost**: ${info.deploymentCost && info.executionCost ? `less than ${info.deploymentCost + info.executionCost} gas` : 'No bound available'}${N
+        }**Deployment cost**: ${info.deploymentCost ? `less than ${info.deploymentCost} gas` : 'No bound available'}${N}${N
+        }**Combined cost**: ${info.deploymentCost && info.executionCost ? `less than ${info.deploymentCost + info.executionCost} gas` : 'No bound available'}${N}${N
         }${optional(info.constructor, constructor =>
             `## Constructor${N
             }${docs(constructor)}${N
