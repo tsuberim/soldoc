@@ -81,7 +81,6 @@ const extract = (data,files) => {
         return out;
     }
 
-    console.log(files)
     const output = Object.keys(result.contracts).reduce((acc,contract) => {
         const split = contract.split(':');
         const file = split[0];
@@ -118,7 +117,7 @@ const soldoc = (options) => {
 
     try{
         if(!opts.repoUrl){
-            const package = require('./package.json');
+            const package = require(path.resolve('./package.json'));
             if(package.repository)
                 if(typeof package.repository === 'object')
                     opts.repoUrl = package.repository.url;
@@ -126,7 +125,7 @@ const soldoc = (options) => {
                     opts.repoUrl = package.repository;
             info(`Detected repoUrl '${opts.repoUrl}'`);
         }
-    } catch(e) {console.log(e)}
+    } catch(e) {}
 
     const files = shelljs.find(opts.in).filter(f => path.extname(f) === '.sol');
     info(`Found ${files.length} files:`,files);
