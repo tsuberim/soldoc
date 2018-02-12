@@ -1,5 +1,7 @@
 # SolDoc
 
+[![npm version](https://badge.fury.io/js/%40soldoc%2Fsoldoc.svg)](https://badge.fury.io/js/%40soldoc%2Fsoldoc)
+
 > A documentation generator for solidity projects, inspired by [TypeDoc](http://typedoc.org/).
 
 ## Usage
@@ -62,15 +64,27 @@ SolDoc is easily themeable, installing a theme is as simple as `yarn add @soldoc
 2. In code: `soldoc({theme: '@soldoc/<theme>'})`.
 
 Currently the official themes are:
-1. **Default**: [@soldoc/markdown](packages/markdown) - A simple markdown theme.
-2. [@soldoc/json](packages/markdown) - A theme that just outputs a JSON object.
+1. **Default**: [![npm version](https://badge.fury.io/js/%40soldoc%2Fmarkdown.svg)](https://badge.fury.io/js/%40soldoc%2Fmarkdown) [@soldoc/markdown](packages/markdown)  - A simple markdown theme.
+2. [![npm version](https://badge.fury.io/js/%40soldoc%2Fjson.svg)](https://badge.fury.io/js/%40soldoc%2Fjson) [@soldoc/json](packages/json)  - A theme that just outputs a JSON object.
 2. [Create a theme!](docs/create_a_theme.md)
+
+You can pass custom options to `<theme>` under it's name, example:
+
+options.json
+```
+{
+    ...
+    "theme": "@soldoc/markdown",
+    "@soldoc/markdown": {
+       ... 
+    }
+}
+```
 
 ## Contribute
 
-This project needs contributors!
-
 **Note**: This project is managed as a **monorepo** and uses [lerna.js](https://lernajs.io/).
 
+This project needs contributors!
 Pull requests are very welcome and needed.
 Check out issues with label `help wanted` to get started.
