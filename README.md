@@ -66,6 +66,18 @@ Currently the official themes are:
 2. [@soldoc/json](packages/markdown) - A theme that just outputs a JSON object.
 2. [Create a theme!](docs/create_a_theme.md)
 
+You can pass custom options to `<theme>` under it's name, example:
+options.json
+```
+{
+    ...
+    "theme": "@soldoc/markdown",
+    "@soldoc/markdown": {
+       ... 
+    }
+}
+```
+
 ## Contribute
 
 This project needs contributors!
