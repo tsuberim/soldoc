@@ -6,9 +6,9 @@ module.exports = (filepath, contractName, info, opts) => {
 
     const docs= (obj) =>
         `${optional(obj.title, title => `> ${title}${N}`)}${''
-        }${optional(obj.notice, notice => `> Notice: ${notice}${N}`)}${''
-        }${optional(obj.details, details => `> ${details}${N}`)}${''
-        }${optional(obj.author, author => `> Author: ${author}${N}`)}${''
+        }${optional(obj.notice, notice => `${N}> Notice: ${notice}${N}`)}${''
+        }${optional(obj.details, details => `${N}> ${details}${N}`)}${''
+        }${optional(obj.author, author => `${N}> Author: ${author}${N}`)}${''
         }${N}`
     ;
 

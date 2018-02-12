@@ -30,6 +30,7 @@ Produces the following output:
 
 # BugsBunny
 > A simulator for Bug Bunny, the most famous Rabbit
+
 > Author: Warned Bros
 
 
@@ -70,8 +71,11 @@ Returns:
 
 ---
 ### doesEat(string)
+
 > Notice: Determine if Bugs will accept `(_food)` to eat
+
 > String comparison may be inefficient
+
 > Author: Bob Clampett
 
 
@@ -93,6 +97,7 @@ Returns:
 
 ---
 ### transferOwnership(address)
+
 > Allows the current owner to transfer control of the contract to a newOwner.
 
 
