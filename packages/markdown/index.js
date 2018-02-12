@@ -118,6 +118,7 @@ module.exports = (filepath, contractName, info, opts) => {
             }`
         )}${N
         }${Object.keys(info.methods).length ? methods(info.methods) : ''}${N
+        }[Back to the top ↑](#${contractName})${N
         }`
     ;
 
