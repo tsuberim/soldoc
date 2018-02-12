@@ -40,7 +40,7 @@ const args = yargs
         },
         'repo-url': {
             alias: 'r',
-            desc: 'Specifies remote repository url.',
+            desc: 'Specifies remote repository url. Uses `repository` field in `package.json` if available and not specified.',
             type: 'string',
             default: soldoc.defaults.repoUrl
         }

@@ -2,7 +2,8 @@ const shelljs = require('shelljs');
 const fs = require('fs');
 const path = require('path');
 const solc = require('solc');
-var assign = require('deep-assign');
+const assign = require('deep-assign');
+const validUrl = require('valid-url');
 
 const gather = (files,callback) => {
     const output = {};
@@ -114,6 +115,18 @@ const soldoc = (options) => {
     }
 
     const info = (...msgs) => opts.quiet ? null : shelljs.echo(...msgs.map(x => typeof x === 'string' ? x : JSON.stringify(x,undefined,2)));
+
+    try{
+        if(!opts.repoUrl){
+            const package = require('./package.json');
+            if(package.repository)
+                if(typeof package.repository === 'object')
+                    opts.repoUrl = package.repository.url;
+                else if(typeof package.repository === 'string' && (validUrl.isHttpUri(package.repository) || validUrl.isHttpsUri(package.repository)))
+                    opts.repoUrl = package.repository;
+            info(`Detected repoUrl '${opts.repoUrl}'`);
+        }
+    } catch(e) {console.log(e)}
 
     const files = shelljs.find(opts.in).filter(f => path.extname(f) === '.sol');
     info(`Found ${files.length} files:`,files);

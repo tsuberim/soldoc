@@ -1,7 +1,4 @@
 {
-	"scripts": {
-		"soldoc": "yarn soldoc"
-	},
 	"devDependencies": {
 		"lerna": "^2.8.0"
 	}

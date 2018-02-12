@@ -28,8 +28,10 @@ SolDoc can be used as a CLI app or as a library and called from your code.
     --quiet, -q     No stdout output                    [boolean] [default: false]
     --theme, -t     Specifies a npm module that exports a default
                     `render(filepath,contractName,contactInfo,options):
-                    {content,extension}` function        [string] [default: false]
-    --repo-url, -r  Specifies remote repository url.                      [string]
+                    {content,extension}` function
+                                            [string] [default: "@soldoc/markdown"]
+    --repo-url, -r  Specifies remote repository url. Uses `repository` field in
+                    `package.json` if available and not specified.        [string]
 
     Examples:
     soldoc --in ./contracts -o ./docs  Render `.sol` files in `./contracts` into
@@ -64,7 +66,7 @@ SolDoc is easily themeable, installing a theme is as simple as `yarn add @soldoc
 2. In code: `soldoc({theme: '@soldoc/<theme>'})`.
 
 Currently the official themes are:
-1. [![NPM Package](https://img.shields.io/npm/v/@soldoc/markdown.svg?style=flat-square)](https://www.npmjs.org/package/@soldoc/markdown) [@soldoc/markdown](packages/markdown) **\*Default\*** - A simple markdown theme. 
+1. [![NPM Package](https://img.shields.io/npm/v/@soldoc/markdown.svg?style=flat-square)](https://www.npmjs.org/package/@soldoc/markdown) [@soldoc/markdown](packages/markdown) **\*Default\*** - A simple markdown theme.
 2. [![NPM Package](https://img.shields.io/npm/v/@soldoc/json.svg?style=flat-square)](https://www.npmjs.org/package/@soldoc/json) [@soldoc/json](packages/json)  - A theme that just outputs a JSON object.
 2. [Create a theme!](docs/create_a_theme.md)
 
@@ -76,7 +78,7 @@ options.json
     ...
     "theme": "@soldoc/markdown",
     "@soldoc/markdown": {
-       ... 
+       ...
     }
 }
 ```

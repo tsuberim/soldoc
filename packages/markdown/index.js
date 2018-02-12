@@ -97,7 +97,7 @@ module.exports = (filepath, contractName, info, opts) => {
 
     const content =
         `# ${contractName}${N
-        }${optional(opts.repoUrl, repoUrl => `[see the source](${repoUrl}/${filepath})${N}`)}${''
+        }${optional(opts.repoUrl, repoUrl => `[see the source](${repoUrl}/tree/master/${filepath})${N}`)}${''
         }${docs(info)}${N
         }${gas(info)}${N
         }**Deployment cost**: ${info.deploymentCost ? `less than ${info.deploymentCost} gas` : 'No bound available'}${N}${N
