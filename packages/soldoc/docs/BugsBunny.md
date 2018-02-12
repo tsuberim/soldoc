@@ -57,7 +57,9 @@ Returns:
 Params:
 
 1. **_food** *of type `string`*
+
     > The name of a food to evaluate (English)
+
 
 Returns:
 
@@ -77,6 +79,8 @@ Returns:
 Params:
 
 1. **newOwner** *of type `address`*
+
     > The address to transfer ownership to.
+
 
 

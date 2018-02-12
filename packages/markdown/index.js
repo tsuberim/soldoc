@@ -31,7 +31,7 @@ module.exports = (filepath, contractName, info, opts) => {
 
     const params = (obj) => {
         const param = (name, p, i) =>
-            `${i+1}. **${name}** *of type \`${p.type}\`*${optional(p.details, details => `${N}    > ${details}`)}`
+            `${i+1}. **${name}** *of type \`${p.type}\`*${optional(p.details, details => `${N}${N}    > ${details}${N}`)}`
         ;
 
         const content =
