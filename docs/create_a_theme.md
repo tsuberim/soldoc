@@ -15,80 +15,80 @@ The info object contains all the information needed to render a contract and has
 
 ```JSON
 {
-  "<filepath>": {
-    "<contract name>": {
-			"executionCost": <number | undefined>,
-			"executionCost": <number | undefined>,
+  "[filepath]": {
+    "[contract name]": {
+			"executionCost": "[number | undefined]",
+			"executionCost": "[number | undefined]",
 
-			"title": "<@title documentation | undefined>",
-			"author": "<@author documentation | undefined>",
-			"notice": "<@notice documentation | undefined>",
-			"details": "<@dev documentation | undefined>",
-			"return": "<@return documentation | undefined>",
+			"title": "[@title documentation | undefined]",
+			"author": "[@author documentation | undefined]",
+			"notice": "[@notice documentation | undefined]",
+			"details": "[@dev documentation | undefined]",
+			"return": "[@return documentation | undefined]",
 
 			"constructor": {
-				"executionCost": <number | undefined>,
+				"executionCost": "[number | undefined]",
 
-				"author": "<@author documentation | undefined>",
-				"notice": "<@notice documentation | undefined>",
-				"details": "<@dev documentation | undefined>",
-				"return": "<@return documentation | undefined>",
+				"author": "[@author documentation | undefined]",
+				"notice": "[@notice documentation | undefined]",
+				"details": "[@dev documentation | undefined]",
+				"return": "[@return documentation | undefined]",
 
-				"payable": <true | false | undefined>,
-				"constant": <true | false | undefined>,
-				"stateMutability": <"pure" | "constant" | "view" | "payable">,
+				"payable": "[true | false | undefined]",
+				"constant": "[true | false | undefined]",
+				"stateMutability": ["pure" | "constant" | "view" | "payable"],
 
 				"params": {
-					"<param name>": {
-						type: "<type (eg. 'byte32[]')>",
-						details: "<@param documentation>"
+					"[param name]": {
+						"type": "[type (eg. 'byte32[]')]",
+						"details": "[@param documentation]"
 					}
 				}
 			},
 			"fallback": {
-				"executionCost": <number | undefined>,
+				"executionCost": "[number | undefined]",
 
-				"author": "<@author documentation | undefined>",
-				"notice": "<@notice documentation | undefined>",
-				"details": "<@dev documentation | undefined>",
-				"return": "<@return documentation | undefined>",
+				"author": "[@author documentation | undefined]",
+				"notice": "[@notice documentation | undefined]",
+				"details": "[@dev documentation | undefined]",
+				"return": "[@return documentation | undefined]",
 
-				"payable": <true | false | undefined>,
-				"constant": <true | false | undefined>,
-				"stateMutability": <"pure" | "constant" | "view" | "payable">,
+				"payable": "[true | false | undefined]",
+				"constant": "[true | false | undefined]",
+				"stateMutability": ["pure" | "constant" | "view" | "payable"],
 			},
 			"methods": {
-				"<method signature (eg. 'payMe(address,uint)'>": {
-					"executionCost": <number | undefined>,
+				"[method signature (eg. 'payMe(address,uint)']": {
+					"executionCost": "[number | undefined]",
 
-					"author": "<@author documentation | undefined>",
-					"notice": "<@notice documentation | undefined>",
-					"details": "<@dev documentation | undefined>",
-					"return": "<@return documentation | undefined>",
+					"author": "[@author documentation | undefined]",
+					"notice": "[@notice documentation | undefined]",
+					"details": "[@dev documentation | undefined]",
+					"return": "[@return documentation | undefined]",
 
-					"payable": <true | false | undefined>,
-					"constant": <true | false | undefined>,
-					"stateMutability": <"pure" | "constant" | "view" | "payable">,
+					"payable": "[true | false | undefined]",
+					"constant": "[true | false | undefined]",
+					"stateMutability": ["pure" | "constant" | "view" | "payable"],
 
 					"params": {
-						"<param name>": {
-							type: "<type (eg. 'byte32[]')>",
-							details: "<@param documentation>"
+						"[param name]": {
+							"type": "[type (eg. 'byte32[]')]",
+							"details": "[@param documentation]"
 						}
 					},
 					"outputs": {
-						"<output name>": {
-							type: "<type (eg. 'byte32[]')>",
+						"[output name]": {
+							"type": "[type (eg. 'byte32[]')]",
 						}
 					}
 				}
 			},
 			"events": {
-				"<event signature (eg. 'Payed(address,uint)'>": {
-					"indexed": <true | false | undefined>
+				"[event signature (eg. 'Payed(address,uint)']": {
+					"indexed": "[true | false | undefined]"
 					"params": {
-						"<param name>": {
-							type: "<type (eg. 'byte32[]')>"
+						"[param name]": {
+							"type": "[type (eg. 'byte32[]')]"
 						}
 					}
 				}
