@@ -120,7 +120,7 @@ const soldoc = (options) => {
             const package = require(path.resolve('./package.json'));
             if(package.repository)
                 if(typeof package.repository === 'object')
-                    opts.repoUrl = package.repository.url;
+                    opts.repoUrl = package.repository.url.replace('.git','');
                 else if(typeof package.repository === 'string' && (validUrl.isHttpUri(package.repository) || validUrl.isHttpsUri(package.repository)))
                     opts.repoUrl = package.repository.replace('.git','');
             info(`Detected repoUrl '${opts.repoUrl}'`);
