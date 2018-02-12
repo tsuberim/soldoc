@@ -1,5 +1,4 @@
 # BugsBunny
-[see the source](https://github.com/daostack/arc/tree/master/contracts/Something.sol)
 > A simulator for Bug Bunny, the most famous Rabbit
 > Author: Warned Bros
 

@@ -25,7 +25,6 @@ const extract = (data) => {
         const node_path = path.resolve('node_modules',file);
         return {contents: fs.readFileSync(fs.existsSync(node_path) ? node_path : file, 'utf-8')};
     });
-    console.log(JSON.stringify(result,undefined,2));
     if(result.errors)
         throw new Error(result.errors);
 
@@ -63,7 +62,6 @@ const extract = (data) => {
         const devdoc = metadata.devdoc || {};
         const userdoc = metadata.userdoc || {};
         const merged = assign(devdoc,userdoc,{methods:{}});
-        console.log(merged);
         const docs = {
             ...merged,
             fallback: merged.methods[''] ? {details: merged.methods['']} : null,
@@ -106,7 +104,7 @@ const markdown = (f,name,contract) => {
 }
 
 const soldoc = (options) => {
-    const opts = assign(JSON.parse(JSON.stringify(options)),soldoc.defaults);
+    const opts = assign(soldoc.defaults,JSON.parse(JSON.stringify(options)));
     if(typeof opts.theme === 'string'){
         opts.theme = require(opts.theme);
     }

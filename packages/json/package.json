@@ -1,0 +1,13 @@
+{
+	"name": "@soldoc/json",
+	"version": "0.0.1-alpha-0",
+	"publishConfig": {
+		"access": "public"
+	},
+	"description": "Json theme for SolDoc",
+	"main": "index.js",
+	"repository": "https://github.com/dev-matan-tsuberi/soldoc/tree/master/packages/json",
+	"author": "[your name] <[your email]>",
+	"license": "MIT",
+	"private": false
+}

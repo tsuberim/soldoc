@@ -65,6 +65,7 @@ SolDoc is easiliy themeable, installing a theme is as simple as `yarn add @soldo
 
 Currently the official themes are:
 1. **Default**: `@soldoc/markdown` - A simple markdown theme.
+2. `@soldoc/json` - A theme that just outputs a JSON object.
 2. [Create a theme!](docs/create_a_theme.md)
 
 ## Contribute
