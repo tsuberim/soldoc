@@ -1,6 +1,9 @@
 {
   "name": "@soldoc/soldoc",
-  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.0.1-alpha-0.0",
   "description": "Solidity documentation generator",
   "main": "index.js",
   "repository": "https://github.com/dev-matan-tsuberi/soldoc",
@@ -14,10 +17,10 @@
     "soldoc": "cli.js"
   },
   "dependencies": {
+    "@soldoc/markdown": "^0.0.1-alpha-0.0",
     "deep-assign": "^2.0.0",
     "shelljs": "^0.8.1",
     "solc": "^0.4.19",
-    "yargs": "^11.0.0",
-    "@soldoc/markdown": "^1.0.0"
+    "yargs": "^11.0.0"
   }
 }
