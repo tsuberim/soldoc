@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.0.1-alpha-0.17",
+  "version": "0.0.1-alpha-0.18",
   "description": "Solidity documentation generator",
   "main": "index.js",
   "repository": "https://github.com/dev-matan-tsuberi/soldoc/",
@@ -17,7 +17,7 @@
     "soldoc": "cli.js"
   },
   "dependencies": {
-    "@soldoc/markdown": "^0.0.1-alpha-0.17",
+    "@soldoc/markdown": "^0.0.1-alpha-0.18",
     "deep-assign": "^2.0.0",
     "shelljs": "^0.8.1",
     "solc": "^0.4.19",
