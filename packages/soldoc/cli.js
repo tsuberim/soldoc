@@ -1,4 +1,6 @@
-const soldoc = require('./index.js')
+#!/usr/bin/env node
+
+const soldoc = require('./index.js');
 const yargs = require('yargs');
 
 const args = yargs
