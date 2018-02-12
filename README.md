@@ -69,5 +69,8 @@ Currently the official themes are:
 2. [Create a theme!](docs/create_a_theme.md)
 
 ## Contribute
+
+**Note**: This project is managed as a **monorepo** and uses [lerna.js](https://lernajs.io/).
+
 Pull requests are very welcome and needed.
 Check out issues with label `help wanted` to get started.
