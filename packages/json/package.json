@@ -1,6 +1,6 @@
 {
 	"name": "@soldoc/json",
-	"version": "0.0.1-alpha-0.29",
+	"version": "0.0.1-alpha-0.30",
 	"publishConfig": {
 		"access": "public"
 	},
