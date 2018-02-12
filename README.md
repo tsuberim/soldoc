@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/%40soldoc%2Fsoldoc.svg)](https://badge.fury.io/js/%40soldoc%2Fsoldoc)
+
 # SolDoc
 
 > A documentation generator for solidity projects, inspired by [TypeDoc](http://typedoc.org/).
@@ -62,8 +64,8 @@ SolDoc is easily themeable, installing a theme is as simple as `yarn add @soldoc
 2. In code: `soldoc({theme: '@soldoc/<theme>'})`.
 
 Currently the official themes are:
-1. **Default**: [@soldoc/markdown](packages/markdown) - A simple markdown theme.
-2. [@soldoc/json](packages/markdown) - A theme that just outputs a JSON object.
+1. **Default**: [@soldoc/markdown](packages/markdown) [![npm version](https://badge.fury.io/js/%40soldoc%2Fmarkdown.svg)](https://badge.fury.io/js/%40soldoc%2Fmarkdown) - A simple markdown theme.
+2. [@soldoc/json](packages/json) [![npm version](https://badge.fury.io/js/%40soldoc%2Fjson.svg)](https://badge.fury.io/js/%40soldoc%2Fjson) - A theme that just outputs a JSON object.
 2. [Create a theme!](docs/create_a_theme.md)
 
 You can pass custom options to `<theme>` under it's name, example:
