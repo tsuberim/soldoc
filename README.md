@@ -81,9 +81,8 @@ options.json
 
 ## Contribute
 
-This project needs contributors!
-
 **Note**: This project is managed as a **monorepo** and uses [lerna.js](https://lernajs.io/).
 
+This project needs contributors!
 Pull requests are very welcome and needed.
 Check out issues with label `help wanted` to get started.
