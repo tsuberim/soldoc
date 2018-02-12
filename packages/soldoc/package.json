@@ -1,0 +1,23 @@
+{
+  "name": "@soldoc/soldoc",
+  "version": "1.0.0",
+  "description": "Solidity documentation generator",
+  "main": "index.js",
+  "repository": "https://github.com/dev-matan-tsuberi/soldoc",
+  "author": "Matan Tsuberi <dev.matan.tsuberi@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "soldoc": "node cli.js"
+  },
+  "bin": {
+    "soldoc": "cli.js"
+  },
+  "dependencies": {
+    "deep-assign": "^2.0.0",
+    "shelljs": "^0.8.1",
+    "solc": "^0.4.19",
+    "yargs": "^11.0.0",
+    "@soldoc/markdown": "^1.0.0"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@soldoc/markdown",
+  "version": "1.0.0",
+  "description": "Markdown theme for soldoc",
+  "main": "index.js",
+  "repository": "https://github.com/dev-matan-tsuberi/soldoc",
+  "author": "Matan Tsuberi <dev.matan.tsuberi@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
