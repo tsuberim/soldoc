@@ -10,7 +10,7 @@ SolDoc can be used as a CLI app or as a library and called from your code.
 
 ### As a CLI tool
 
-1. Install: `yarn global add --dev @soldoc/soldoc` / `npm i -g @soldoc/soldoc`.
+1. Install: `yarn global add @soldoc/soldoc` / `npm i -g @soldoc/soldoc`.
 2. Use the CLI:
     ```
     Usage: soldoc --in <input dir> -o <out dir>
