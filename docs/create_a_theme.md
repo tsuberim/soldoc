@@ -18,7 +18,7 @@ The info object contains all the information needed to render a contract and has
   "[filepath]": {
     "[contract name]": {
 			"executionCost": "[number | undefined]",
-			"executionCost": "[number | undefined]",
+			"deploymentCost": "[number | undefined]",
 
 			"title": "[@title documentation | undefined]",
 			"author": "[@author documentation | undefined]",
