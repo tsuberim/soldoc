@@ -24,18 +24,6 @@ const args = yargs
             type: 'string',
             default: soldoc.out
         },
-        'includes': {
-            alias: 'i',
-            desc: 'Specifies the location to look for included documents. One may use `[[include:FILENAME]]` in comments to include documents from this location.',
-            type: 'string',
-            default: soldoc.includes
-        },
-        'media': {
-            alias: 'm',
-            desc: 'Specifies the location with media files that should be copied to the output directory. In order to create a link to media files use the pattern `media://FILENAME` in comments.',
-            type: 'string',
-            default: soldoc.media
-        },
         'quiet': {
             alias: 'q',
             desc: 'No stdout output',

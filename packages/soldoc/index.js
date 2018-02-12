@@ -127,7 +127,7 @@ const soldoc = (options) => {
             Object.keys(extracted).forEach(f => {
                 Object.keys(extracted[f]).forEach(contract => {
                     info(`Rendering '${f}':${contract}...`);
-                    const result = opts.theme(f,contract,extracted[f][contract]);
+                    const result = opts.theme(f,contract,extracted[f][contract],opts[opts.theme]);
                     const where = path.resolve(opts.out,path.relative(opts.in,path.dirname(f)),`${contract}${result.extension}`);
                     info(`Writing result to '${where}'`);
                     shelljs.mkdir('-p',path.dirname(where));
@@ -143,8 +143,6 @@ soldoc.defaults = {
     in: './contracts',
     out: './docs',
     // json: undefined
-    // includes: undefined
-    // media: undefined
     quiet: false,
     theme: '@soldoc/markdown'
 };
