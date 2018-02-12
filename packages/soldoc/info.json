@@ -1,0 +1,266 @@
+{
+  "contracts/GlobalConstraintInterface.sol": {
+    "GlobalConstraintInterface": {
+      "constructor": null,
+      "events": {},
+      "fallback": null,
+      "methods": {
+        "post(address,bytes32,bytes32)": {
+          "constant": false,
+          "name": "post",
+          "outputs": {
+            "output_0": {
+              "type": "bool"
+            }
+          },
+          "payable": false,
+          "stateMutability": "nonpayable",
+          "params": {
+            "_scheme": {
+              "type": "address"
+            },
+            "_params": {
+              "type": "bytes32"
+            },
+            "_method": {
+              "type": "bytes32"
+            }
+          }
+        },
+        "pre(address,bytes32,bytes32)": {
+          "constant": false,
+          "name": "pre",
+          "outputs": {
+            "output_0": {
+              "type": "bool"
+            }
+          },
+          "payable": false,
+          "stateMutability": "nonpayable",
+          "params": {
+            "_scheme": {
+              "type": "address"
+            },
+            "_params": {
+              "type": "bytes32"
+            },
+            "_method": {
+              "type": "bytes32"
+            }
+          }
+        },
+        "when()": {
+          "constant": false,
+          "name": "when",
+          "outputs": {
+            "output_0": {
+              "type": "uint8"
+            }
+          },
+          "payable": false,
+          "stateMutability": "nonpayable",
+          "params": {}
+        }
+      }
+    }
+  },
+  "contracts/Something.sol": {
+    "BugsBunny": {
+      "constructor": null,
+      "events": {},
+      "fallback": null,
+      "methods": {
+        "doesEat(string)": {
+          "constant": true,
+          "name": "doesEat",
+          "outputs": {
+            "output_0": {
+              "type": "bool"
+            }
+          },
+          "payable": false,
+          "stateMutability": "pure",
+          "params": {
+            "_food": {
+              "type": "string",
+              "details": "The name of a food to evaluate (English)"
+            }
+          },
+          "author": "Bob Clampett",
+          "details": "String comparison may be inefficient",
+          "return": "true if Bugs will eat it, false otherwise",
+          "notice": "Determine if Bugs will accept `(_food)` to eat"
+        }
+      },
+      "author": "Warned Bros",
+      "title": "A simulator for Bug Bunny, the most famous Rabbit",
+      "executionCost": 94,
+      "deploymentCost": 49600
+    },
+    "StandardToken": {
+      "constructor": {
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "params": {}
+      },
+      "events": {},
+      "fallback": null,
+      "methods": {
+        "totalSupply()": {
+          "constant": true,
+          "name": "totalSupply",
+          "outputs": {
+            "output_0": {
+              "type": "uint256"
+            }
+          },
+          "payable": false,
+          "stateMutability": "view",
+          "params": {}
+        }
+      }
+    },
+    "TokenCapGC": {
+      "constructor": null,
+      "events": {},
+      "fallback": null,
+      "methods": {
+        "post(address,bytes32,bytes)": {
+          "constant": true,
+          "name": "post",
+          "outputs": {
+            "output_0": {
+              "type": "bool"
+            }
+          },
+          "payable": false,
+          "stateMutability": "view",
+          "params": {
+            "param_0": {
+              "type": "address"
+            },
+            "_paramsHash": {
+              "type": "bytes32",
+              "details": "the parameters hash to check the total supply cap against."
+            },
+            "param_2": {
+              "type": "bytes"
+            }
+          },
+          "details": "check the total supply cap.",
+          "return": "bool which represents a success"
+        },
+        "getParametersHash(address,uint256)": {
+          "constant": true,
+          "name": "getParametersHash",
+          "outputs": {
+            "output_0": {
+              "type": "bytes32"
+            }
+          },
+          "payable": false,
+          "stateMutability": "pure",
+          "params": {
+            "_token": {
+              "type": "address",
+              "details": "the token to add to the params."
+            },
+            "_cap": {
+              "type": "uint256",
+              "details": "the cap to check the total supply against."
+            }
+          },
+          "details": "calculate and returns the hash of the given parameters",
+          "return": "the calculated parameters hash",
+          "executionCost": 485
+        },
+        "pre(address,bytes32,bytes)": {
+          "constant": true,
+          "name": "pre",
+          "outputs": {
+            "output_0": {
+              "type": "bool"
+            }
+          },
+          "payable": false,
+          "stateMutability": "pure",
+          "params": {
+            "param_0": {
+              "type": "address"
+            },
+            "param_1": {
+              "type": "bytes32"
+            },
+            "param_2": {
+              "type": "bytes"
+            }
+          },
+          "details": "check the constraint after the action. This global constraint only checks the state after the action, so here we just return true:",
+          "return": "true"
+        },
+        "setParameters(address,uint256)": {
+          "constant": false,
+          "name": "setParameters",
+          "outputs": {
+            "output_0": {
+              "type": "bytes32"
+            }
+          },
+          "payable": false,
+          "stateMutability": "nonpayable",
+          "params": {
+            "_token": {
+              "type": "address",
+              "details": "the token to add to the params."
+            },
+            "_cap": {
+              "type": "uint256",
+              "details": "the cap to check the total supply against."
+            }
+          },
+          "details": "adding a new set of parameters",
+          "return": "the calculated parameters hash",
+          "executionCost": 40976
+        },
+        "params(bytes32)": {
+          "constant": true,
+          "name": "params",
+          "outputs": {
+            "token": {
+              "type": "address"
+            },
+            "cap": {
+              "type": "uint256"
+            }
+          },
+          "payable": false,
+          "stateMutability": "view",
+          "params": {
+            "param_0": {
+              "type": "bytes32"
+            }
+          },
+          "executionCost": 934
+        },
+        "when()": {
+          "constant": true,
+          "name": "when",
+          "outputs": {
+            "output_0": {
+              "type": "uint8"
+            }
+          },
+          "payable": false,
+          "stateMutability": "pure",
+          "params": {},
+          "details": "when return if this globalConstraints is pre, post or both.",
+          "return": "CallPhase enum indication  Pre, Post or PreAndPost.",
+          "executionCost": 325
+        }
+      },
+      "title": "Token Cap Global Constraint",
+      "executionCost": 233,
+      "deploymentCost": 197600
+    }
+  }
+}

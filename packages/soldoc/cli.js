@@ -10,37 +10,37 @@ const args = yargs
         'in': {
             desc: 'Specifies the location the input files should be read from.',
             type: 'string',
-            default: soldoc.in
+            default: soldoc.defaults.in
         },
         'json': {
             alias: 'j',
             desc: 'Output the parsed information to a json file instead of rendering.',
             type: 'string',
-            default: soldoc.json
+            default: soldoc.defaults.json
         },
         'out': {
             alias: 'o',
             desc: 'Specifies the location the documentation should be written to.',
             type: 'string',
-            default: soldoc.out
+            default: soldoc.defaults.out
         },
         'quiet': {
             alias: 'q',
             desc: 'No stdout output',
             type: 'boolean',
-            default: soldoc.quiet
+            default: soldoc.defaults.quiet
         },
         'theme': {
             alias: 't',
             desc: 'Specifies a npm module that exports a default `render(filepath,contractName,contactInfo,options): {content,extension}` function',
             type: 'string',
-            default: soldoc.quiet
+            default: soldoc.defaults.quiet
         },
         'repo-url': {
             alias: 'r',
             desc: 'Specifies remote repository url.',
             type: 'string',
-            default: soldoc.repoUrl
+            default: soldoc.defaults.repoUrl
         }
     })
     .argv;

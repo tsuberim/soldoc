@@ -6,6 +6,9 @@ pragma solidity ^0.4.19;
 import "./GlobalConstraintInterface.sol";
 
 contract StandardToken {
+
+    function StandardToken() public {}
+
     function totalSupply() public view returns(uint);
 }
 
