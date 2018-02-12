@@ -5,10 +5,10 @@ module.exports = (filepath, contractName, info, opts) => {
     const optional = (x,template) => x ? template(x) : '';
 
     const docs= (obj) =>
-        `${optional(info.title, title => `> ${title}${N}`)}${''
-        }${optional(info.notice, notice => `> User doc: ${notice}${N}`)}${''
-        }${optional(info.details, details => `> Dev doc: ${details}${N}`)}${''
-        }${optional(info.author, author => `> Author: ${author}${N}`)}${''
+        `${optional(obj.title, title => `> ${title}${N}`)}${''
+        }${optional(obj.notice, notice => `> Notice: ${notice}${N}`)}${''
+        }${optional(obj.details, details => `> ${details}${N}`)}${''
+        }${optional(obj.author, author => `> Author: ${author}${N}`)}${''
         }${N}`
     ;
 
@@ -30,8 +30,10 @@ module.exports = (filepath, contractName, info, opts) => {
     };
 
     const params = (obj) => {
+        if(!obj.name)
+            console.log('params',obj);
         const param = (name, p, i) =>
-            `${i+1}. **${name}** *of type \`${p.type}\`*${optional(p.details, details => ` - ${details}`)}`
+            `${i+1}. **${name}** *of type \`${p.type}\`*${optional(p.details, details => `${N}    > ${details}`)}`
         ;
 
         const content =
@@ -39,6 +41,8 @@ module.exports = (filepath, contractName, info, opts) => {
             }${Object.keys(obj.params).map((k,i) => param(k,obj.params[k],i)).join(N)}${N
             }`;
 
+        if(!obj.name)
+            console.log('content',content);
         return content;
     }
 
@@ -49,7 +53,7 @@ module.exports = (filepath, contractName, info, opts) => {
 
         const content =
             `Returns:${N}${N
-            }${optional(obj.return,x => `${x}${N}`)}${''
+            }${optional(obj.return,x => `> ${x}${N}`)}${N
             }${Object.keys(obj.outputs).map((k,i) => output(k,obj.outputs[k],i)).join(N)}${N
             }`;
 

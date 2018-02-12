@@ -12,8 +12,6 @@
 
 ## Events
 ### OwnershipTransferred(address,address)
-> A simulator for Bug Bunny, the most famous Rabbit
-> Author: Warned Bros
 
 
 **Execution cost**: No bound available
@@ -27,8 +25,6 @@ Params:
 
 ## Methods
 ### owner()
-> A simulator for Bug Bunny, the most famous Rabbit
-> Author: Warned Bros
 
 
 **Execution cost**: less than 526 gas
@@ -39,11 +35,14 @@ Params:
 
 Returns:
 
+
 1. **output_0** *of type `address`*
+
 --- 
 ### doesEat(string)
-> A simulator for Bug Bunny, the most famous Rabbit
-> Author: Warned Bros
+> Notice: Determine if Bugs will accept `(_food)` to eat
+> String comparison may be inefficient
+> Author: Bob Clampett
 
 
 **Execution cost**: No bound available
@@ -53,16 +52,18 @@ Returns:
 
 Params:
 
-1. **_food** *of type `string`* - The name of a food to evaluate (English)
+1. **_food** *of type `string`*
+    > The name of a food to evaluate (English)
 
 Returns:
 
-true if Bugs will eat it, false otherwise
+> true if Bugs will eat it, false otherwise
+
 1. **output_0** *of type `bool`*
+
 --- 
 ### transferOwnership(address)
-> A simulator for Bug Bunny, the most famous Rabbit
-> Author: Warned Bros
+> Allows the current owner to transfer control of the contract to a newOwner.
 
 
 **Execution cost**: less than 22788 gas
@@ -70,6 +71,7 @@ true if Bugs will eat it, false otherwise
 
 Params:
 
-1. **newOwner** *of type `address`* - The address to transfer ownership to.
+1. **newOwner** *of type `address`*
+    > The address to transfer ownership to.
 
 
