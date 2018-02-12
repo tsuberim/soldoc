@@ -1,8 +1,6 @@
-
-
 # SolDoc
 
-A documentation generator for solidity projects, inspired by [TypeDoc](http://typedoc.org/).
+> A documentation generator for solidity projects, inspired by [TypeDoc](http://typedoc.org/).
 
 ## Usage
 
@@ -59,16 +57,18 @@ SolDoc can be used as a CLI app or as a library and called from your code.
 
 ## Themes
 
-SolDoc is easiliy themeable, installing a theme is as simple as `yarn add @soldoc/<theme>` / `npm i --save @soldoc/<theme>` and setting a configuration option:
+SolDoc is easily themeable, installing a theme is as simple as `yarn add @soldoc/<theme>` / `npm i --save @soldoc/<theme>` and setting a configuration option:
 1. In the cli: `soldoc --theme @soldoc/<theme>`.
 2. In code: `soldoc({theme: '@soldoc/<theme>'})`.
 
 Currently the official themes are:
-1. **Default**: `@soldoc/markdown` - A simple markdown theme.
-2. `@soldoc/json` - A theme that just outputs a JSON object.
+1. **Default**: [@soldoc/markdown](packages/markdown) - A simple markdown theme.
+2. [@soldoc/json](packages/markdown) - A theme that just outputs a JSON object.
 2. [Create a theme!](docs/create_a_theme.md)
 
 ## Contribute
+
+This project needs contributors!
 
 **Note**: This project is managed as a **monorepo** and uses [lerna.js](https://lernajs.io/).
 

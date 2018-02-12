@@ -6,7 +6,7 @@
   "version": "0.0.1-alpha-0.9",
   "description": "Solidity documentation generator",
   "main": "index.js",
-  "repository": "https://github.com/dev-matan-tsuberi/soldoc",
+  "repository": "https://github.com/dev-matan-tsuberi/soldoc/",
   "author": "Matan Tsuberi <dev.matan.tsuberi@gmail.com>",
   "license": "MIT",
   "private": false,
