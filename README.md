@@ -67,6 +67,7 @@ Currently the official themes are:
 2. [Create a theme!](docs/create_a_theme.md)
 
 You can pass custom options to `<theme>` under it's name, example:
+
 options.json
 ```
 {
