@@ -73,7 +73,6 @@ Returns:
 ### doesEat(string)
 
 > Determine if Bugs will accept `(_food)` to eat
->
 > String comparison may be inefficient
 >
 > Author: Bob Clampett
