@@ -70,7 +70,7 @@ module.exports = (filepath, contractName, info, opts) => {
 
         const content =
             `## Methods${N
-            }${Object.keys(methods).map((k,i) => method(k,methods[k],i)).join(N)}`
+            }${Object.keys(methods).map((k,i) => method(k,methods[k],i)).join(`--- ${N}`)}`
         ;
 
         return content;
@@ -89,7 +89,7 @@ module.exports = (filepath, contractName, info, opts) => {
 
         const content =
             `## Events${N
-            }${Object.keys(events).map((k,i) => event(k,events[k],i)).join(N)}`
+            }${Object.keys(events).map((k,i) => event(k,events[k],i)).join(`--- ${N}`)}`
         ;
 
         return content;
@@ -97,6 +97,7 @@ module.exports = (filepath, contractName, info, opts) => {
 
     const content =
         `# ${contractName}${N
+        }${optional(opts.repoUrl, repoUrl => `[see the source](${repoUrl}/${filepath})${N}`)}${''
         }${docs(info)}${N
         }${gas(info)}${N
         }**Deployment cost**: ${info.deploymentCost ? `less than ${info.deploymentCost} gas` : 'No bound available'}${N

@@ -25,8 +25,9 @@ const extract = (data) => {
         const node_path = path.resolve('node_modules',file);
         return {contents: fs.readFileSync(fs.existsSync(node_path) ? node_path : file, 'utf-8')};
     });
+    console.log(JSON.stringify(result,undefined,2));
     if(result.errors)
-        throw result.errors
+        throw new Error(result.errors);
 
     const clean = data => {
         const removeUndefined = x => JSON.parse(JSON.stringify(x));
@@ -38,7 +39,7 @@ const extract = (data) => {
             inputs: undefined,
             type: undefined
         });
-        const mapObj = (obj,f) => Object.keys(obj).reduce((acc,k) => ({...acc, [k]: f(obj[k])}),{});
+        const mapObj = (obj,f) => Object.keys(obj || {}).reduce((acc,k) => ({...acc, [k]: f(obj[k])}),{});
 
         // interface
         const abi = JSON.parse(data.interface);
@@ -61,7 +62,8 @@ const extract = (data) => {
         const metadata = data.metadata !== '' ? JSON.parse(data.metadata).output : {};
         const devdoc = metadata.devdoc || {};
         const userdoc = metadata.userdoc || {};
-        const merged = assign(devdoc,userdoc);
+        const merged = assign(devdoc,userdoc,{methods:{}});
+        console.log(merged);
         const docs = {
             ...merged,
             fallback: merged.methods[''] ? {details: merged.methods['']} : null,
@@ -127,7 +129,7 @@ const soldoc = (options) => {
             Object.keys(extracted).forEach(f => {
                 Object.keys(extracted[f]).forEach(contract => {
                     info(`Rendering '${f}':${contract}...`);
-                    const result = opts.theme(f,contract,extracted[f][contract],opts[opts.theme]);
+                    const result = opts.theme(f,contract,extracted[f][contract],{...opts[opts.theme], repoUrl: opts.repoUrl});
                     const where = path.resolve(opts.out,path.relative(opts.in,path.dirname(f)),`${contract}${result.extension}`);
                     info(`Writing result to '${where}'`);
                     shelljs.mkdir('-p',path.dirname(where));
@@ -142,7 +144,8 @@ const soldoc = (options) => {
 soldoc.defaults = {
     in: './contracts',
     out: './docs',
-    // json: undefined
+    // json: undefined,
+    // repoUrl: undefined,
     quiet: false,
     theme: '@soldoc/markdown'
 };

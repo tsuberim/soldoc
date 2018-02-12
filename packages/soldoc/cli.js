@@ -4,7 +4,7 @@ const yargs = require('yargs');
 const args = yargs
     .config('options')
     .epilogue('For more information, visit https://github.com/dev-matan-tsuberi/soldoc')
-    .usage('Usage: $0 --in <input dir> -o <out dir> -i <includes dir> -m <media dir>')
+    .usage('Usage: $0 --in <input dir> -o <out dir>')
     .example('$0 --in ./contracts -o ./docs','Render `.sol` files in `./contracts` into `.docs`')
     .options({
         'in': {
@@ -32,9 +32,15 @@ const args = yargs
         },
         'theme': {
             alias: 't',
-            desc: 'Specifies a npm module that exports a default `render(filepath,contractName,contactInfo): {content,extension}` function',
+            desc: 'Specifies a npm module that exports a default `render(filepath,contractName,contactInfo,options): {content,extension}` function',
             type: 'string',
             default: soldoc.quiet
+        },
+        'repo-url': {
+            alias: 'r',
+            desc: 'Specifies remote repository url.',
+            type: 'string',
+            default: soldoc.repoUrl
         }
     })
     .argv;
@@ -43,11 +49,10 @@ try{
     const opts = {
         in: args.in,
         out: args.out,
-        includes: args.includes,
-        media: args.media,
         json: args.json,
         quiet: args.quiet,
-        theme: args.theme
+        theme: args.theme,
+        repoUrl: args['repo-url']
     };
     soldoc(opts);
 }
