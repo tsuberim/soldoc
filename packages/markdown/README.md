@@ -1,6 +1,6 @@
 # SolDoc markdown theme
 
-A simple markdown theme for SolDoc.
+A simple JSON theme for SolDoc.
 
 ## Example
 
@@ -27,42 +27,30 @@ contract BugsBunny {
 
 Produces the following output:
 
-```JSON
-{
-  "filepath": "contracts/BugsBunny.sol",
-  "contractName": "BugsBunny",
-  "info": {
-    "constructor": null,
-    "events": {},
-    "fallback": null,
-    "methods": {
-      "doesEat(string)": {
-        "constant": true,
-        "name": "doesEat",
-        "outputs": {
-          "output_0": {
-            "type": "bool"
-          }
-        },
-        "payable": false,
-        "stateMutability": "pure",
-        "params": {
-          "_food": {
-            "type": "string",
-            "details": "The name of a food to evaluate (English)"
-          }
-        },
-        "author": "Bob Clampett",
-        "details": "String comparison may be inefficient",
-        "return": "true if Bugs will eat it, false otherwise",
-        "notice": "Determine if Bugs will accept `(_food)` to eat"
-      }
-    },
-    "author": "Warned Bros",
-    "title": "A simulator for Bug Bunny, the most famous Rabbit",
-    "executionCost": 94,
-    "deploymentCost": 49600
-  },
-  "options": {}
-}
-```
+# BugsBunny
+> A simulator for Bug Bunny, the most famous Rabbit
+> Author: Warned Bros
+
+**Execution cost**: less than 94 gas
+**Deployment cost**: less than 49600 gas
+**Combined cost**: less than 49694 gas
+
+## Events
+
+
+## Methods
+### doesEat(string)
+> A simulator for Bug Bunny, the most famous Rabbit
+> Author: Warned Bros
+
+**Execution cost**: No bound available
+**Attributes**: constant
+
+Params:
+
+1. **_food** *of type `string`* - The name of a food to evaluate (English)
+
+Returns:
+
+true if Bugs will eat it, false otherwise
+1. **output_0** *of type `bool`*
