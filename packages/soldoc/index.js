@@ -20,7 +20,7 @@ const gather = (files,callback) => {
     files.forEach(f => fs.readFile(f,'utf8',(err,data) => cb(f,err,data)));
 }
 
-const extract = (data) => {
+const extract = (data,files) => {
     const result = solc.compile({sources: data},1,file => {
         const node_path = path.resolve('node_modules',file);
         return {contents: fs.readFileSync(fs.existsSync(node_path) ? node_path : file, 'utf-8')};
@@ -80,17 +80,21 @@ const extract = (data) => {
         return out;
     }
 
+    console.log(files)
     const output = Object.keys(result.contracts).reduce((acc,contract) => {
         const split = contract.split(':');
         const file = split[0];
         const name = split[1];
-        return {
-            ...acc,
-            [file]: {
-                ...(acc[file] || {}),
-                [name]: clean(result.contracts[contract])
+        if(files.indexOf(file) !== -1)
+            return {
+                ...acc,
+                [file]: {
+                    ...(acc[file] || {}),
+                    [name]: clean(result.contracts[contract])
+                }
             }
-        }
+        else
+            return acc;
     },{});
 
     return output;
@@ -104,19 +108,19 @@ const markdown = (f,name,contract) => {
 }
 
 const soldoc = (options) => {
-    const opts = assign(soldoc.defaults,JSON.parse(JSON.stringify(options)));
+    const opts = assign({},soldoc.defaults,JSON.parse(JSON.stringify(options)));
     if(typeof opts.theme === 'string'){
         opts.theme = require(opts.theme);
     }
 
-    const info = (...msgs) => opts.quiet ? console.info(...msgs) : null;
+    const info = (...msgs) => opts.quiet ? null : shelljs.echo(...msgs.map(x => typeof x === 'string' ? x : JSON.stringify(x,undefined,2)));
 
     const files = shelljs.find(opts.in).filter(f => path.extname(f) === '.sol');
     info(`Found ${files.length} files:`,files);
     gather(files, (err, data) => {
         if(err) throw err;
         info(`Extracting files...`);
-        const extracted = extract(data);
+        const extracted = extract(data,files);
         if(opts.json){
             info(`Writing extracted info to '${opts.json}'...`);
             fs.writeFile(opts.json,JSON.stringify(extracted,undefined,2),'utf8',(err) => {

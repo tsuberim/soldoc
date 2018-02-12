@@ -70,7 +70,7 @@ module.exports = (filepath, contractName, info, opts) => {
 
         const content =
             `## Methods${N
-            }${Object.keys(methods).map((k,i) => method(k,methods[k],i)).join(`--- ${N}`)}`
+            }${Object.keys(methods).map((k,i) => method(k,methods[k],i)).join(`${N}--- ${N}`)}`
         ;
 
         return content;
@@ -89,7 +89,7 @@ module.exports = (filepath, contractName, info, opts) => {
 
         const content =
             `## Events${N
-            }${Object.keys(events).map((k,i) => event(k,events[k],i)).join(`--- ${N}`)}`
+            }${Object.keys(events).map((k,i) => event(k,events[k],i)).join(`${N}--- ${N}`)}`
         ;
 
         return content;

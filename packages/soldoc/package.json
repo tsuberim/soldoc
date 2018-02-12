@@ -22,5 +22,8 @@
     "shelljs": "^0.8.1",
     "solc": "^0.4.19",
     "yargs": "^11.0.0"
+  },
+  "devDependencies": {
+    "zeppelin-solidity": "^1.6.0"
   }
 }

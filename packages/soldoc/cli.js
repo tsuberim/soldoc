@@ -34,7 +34,7 @@ const args = yargs
             alias: 't',
             desc: 'Specifies a npm module that exports a default `render(filepath,contractName,contactInfo,options): {content,extension}` function',
             type: 'string',
-            default: soldoc.defaults.quiet
+            default: soldoc.defaults.theme
         },
         'repo-url': {
             alias: 'r',
