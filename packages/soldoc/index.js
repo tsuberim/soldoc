@@ -45,10 +45,10 @@ const extract = (data,files) => {
 
         const constructors = abi.filter(x => x.type === 'constructor');
         const constructor = constructors.length ? normalize(constructors[0]) : null;
-        const events = abi.filter(x => x.type === 'event').map(normalize).reduce((acc,e)=>({...acc,[signature(e)]:e}),{});
+        const events = abi.filter(x => x.type === 'event').sort((a,b) => a.name > b.name).map(normalize).reduce((acc,e)=>({...acc,[signature(e)]:e}),{});
         const fallbacks = abi.filter(x => x.type === 'fallback');
         const fallback = fallbacks.length ? normalize(fallbacks[0]) : null;
-        const methods = abi.filter(x => x.type === 'function').map(normalize).reduce((acc,f)=>({...acc,[signature(f)]:f}),{});
+        const methods = abi.filter(x => x.type === 'function').sort((a,b) => a.name > b.name).map(normalize).reduce((acc,f)=>({...acc,[signature(f)]:f}),{});
 
         const interface = {
             constructor,

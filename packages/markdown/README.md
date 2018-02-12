@@ -55,21 +55,6 @@ Params:
 
 
 ## Methods
-### owner()
-
-
-**Execution cost**: less than 526 gas
-
-**Attributes**: constant
-
-
-
-Returns:
-
-
-1. **output_0** *of type `address`*
-
----
 ### doesEat(string)
 >
 >Determine if Bugs will accept `(_food)` to eat
@@ -96,6 +81,21 @@ Returns:
 > true if Bugs will eat it, false otherwise
 
 1. **output_0** *of type `bool`*
+
+---
+### owner()
+
+
+**Execution cost**: less than 526 gas
+
+**Attributes**: constant
+
+
+
+Returns:
+
+
+1. **output_0** *of type `address`*
 
 ---
 ### transferOwnership(address)
