@@ -64,7 +64,7 @@ SolDoc is easily themeable, installing a theme is as simple as `yarn add @soldoc
 2. In code: `soldoc({theme: '@soldoc/<theme>'})`.
 
 Currently the official themes are:
-1. [![npm version](https://badge.fury.io/js/%40soldoc%2Fmarkdown.svg)](https://badge.fury.io/js/%40soldoc%2Fmarkdown) [@soldoc/markdown](packages/markdown)  - A simple markdown theme. **\*Default\***
+1. [![npm version](https://badge.fury.io/js/%40soldoc%2Fmarkdown.svg)](https://badge.fury.io/js/%40soldoc%2Fmarkdown) [@soldoc/markdown](packages/markdown) **\*Default\*** - A simple markdown theme. 
 2. [![npm version](https://badge.fury.io/js/%40soldoc%2Fjson.svg)](https://badge.fury.io/js/%40soldoc%2Fjson) [@soldoc/json](packages/json)  - A theme that just outputs a JSON object.
 2. [Create a theme!](docs/create_a_theme.md)
 
