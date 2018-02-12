@@ -45,7 +45,7 @@ module.exports = (filepath, contractName, info, options) => {
   "private": false
 }
 ```
-5. Test your theme by running `cd ./packages/soldoc && yarn soldoc --theme ../../packages/json`, you should see your output in `docs/`.
+5. Test your theme by running `cd ./packages/soldoc && yarn soldoc --theme ../json`, you should see your output in `docs/`.
 6. PR your change into this repo.
 
 ## The info object

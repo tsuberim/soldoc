@@ -109,7 +109,7 @@ module.exports = (filepath, contractName, info, opts) => {
             }${Object.keys(constructor.params).length ? params(constructor) : ''}${''
             }`
         )}${N
-        }${optional(info.events, events)}${N
+        }${Object.keys(info.events).length ? events(info.events) : ''}${N
         }${optional(info.fallback, fallback =>
             `## Fallback${N
             }${docs(fallback)}${N
@@ -117,7 +117,7 @@ module.exports = (filepath, contractName, info, opts) => {
             }${attrs(fallback)}${N
             }`
         )}${N
-        }${optional(info.methods, methods)}${N
+        }${Object.keys(info.methods).length ? methods(info.methods) : ''}${N
         }`
     ;
 

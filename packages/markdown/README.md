@@ -35,7 +35,6 @@ Produces the following output:
 **Deployment cost**: less than 49600 gas
 **Combined cost**: less than 49694 gas
 
-## Events
 
 
 ## Methods
