@@ -3,6 +3,16 @@
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "soldoc",
+    "documentation",
+    "docs",
+    "solidity",
+    "markdown",
+    "json",
+    "generator",
+    "natspec"
+  ],
   "version": "0.0.1-alpha-0.30",
   "description": "Solidity documentation generator",
   "main": "index.js",

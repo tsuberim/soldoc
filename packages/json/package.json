@@ -4,6 +4,16 @@
 	"publishConfig": {
 		"access": "public"
 	},
+	"keywords": [
+		"soldoc",
+		"documentation",
+		"docs",
+		"solidity",
+		"json",
+		"theme",
+		"generator",
+		"natspec"
+	],
 	"description": "Json theme for SolDoc",
 	"main": "index.js",
 	"repository": "https://github.com/dev-matan-tsuberi/soldoc/tree/master/packages/json",
