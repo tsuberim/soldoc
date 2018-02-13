@@ -13,7 +13,7 @@
     "generator",
     "natspec"
   ],
-  "version": "0.0.1-alpha-0.30",
+  "version": "0.1.0",
   "description": "Solidity documentation generator",
   "main": "index.js",
   "repository": "https://github.com/dev-matan-tsuberi/soldoc",
@@ -27,7 +27,7 @@
     "soldoc": "cli.js"
   },
   "dependencies": {
-    "@soldoc/markdown": "^0.0.1-alpha-0.30",
+    "@soldoc/markdown": "^0.1.0",
     "deep-assign": "^2.0.0",
     "shelljs": "^0.8.1",
     "solc": "^0.4.19",
