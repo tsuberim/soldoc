@@ -6,7 +6,7 @@ Params:
 
 1. `filepath` - the original file's path (eg. `path/to/file.sol`).
 2. `contractName` - the name of the contract (eg. `MyAwesomeContract`).
-3. `info` - an [info object](#the_info_object).
+3. `info` - an [info object](#the-info-object).
 4. `options` - other custom options passed to the function, plus `repoUrl` if available.
 
 Returns:
