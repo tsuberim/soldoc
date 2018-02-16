@@ -13,7 +13,7 @@ SolDoc can be used as a CLI app or as a library and called from your code.
 1. Install: `yarn global add @soldoc/soldoc` / `npm i -g @soldoc/soldoc`.
 2. Use the CLI:
     ```
-    Usage: soldoc --in <input dir> -o <out dir>
+    Usage: cli.js --in <input dir> -o <out dir>
 
     Options:
     --help          Show help                                            [boolean]
@@ -23,8 +23,7 @@ SolDoc can be used as a CLI app or as a library and called from your code.
                                                 [string] [default: "./contracts"]
     --json, -j      Output the parsed information to a json file instead of
                     rendering.                                            [string]
-    --out, -o       Specifies the location the documentation should be written to.
-                                                        [string] [default: "./docs"]
+    --out, -o       Specifies the location the documentation should be written to. [string] [default: "./docs"]
     --quiet, -q     No stdout output                    [boolean] [default: false]
     --theme, -t     Specifies a npm module that exports a default
                     `render(filepath,contractName,contactInfo,options):
@@ -32,9 +31,11 @@ SolDoc can be used as a CLI app or as a library and called from your code.
                                             [string] [default: "@soldoc/markdown"]
     --repo-url, -r  Specifies remote repository url. Uses `repository` field in
                     `package.json` if available and not specified.        [string]
+    --log, -l       Specifies the location the log file should be written to.
+                                                                            [string]
 
     Examples:
-    soldoc --in ./contracts -o ./docs  Render `.sol` files in `./contracts` into
+    cli.js --in ./contracts -o ./docs  Render `.sol` files in `./contracts` into
                                         `.docs`
 
     For more information, visit https://github.com/dev-matan-tsuberi/soldoc
@@ -47,16 +48,17 @@ SolDoc can be used as a CLI app or as a library and called from your code.
     ```JavaScript
     import soldoc from '@soldoc/soldoc';
 
-    // default options
-    const options = {
+    /* default options */
+    soldoc.defaults = {
         in: './contracts',
         out: './docs',
-        json: null,
-        repoUrl: null,
+        /* json: undefined, */
+        /* repoUrl: undefined, */
+        /* log: undefined, */
         quiet: false,
-        theme: '@soldoc/markdown'
+        theme: '@soldoc/markdown',
     };
-    soldoc(options);
+    soldoc(options); // returns a promise
     ```
 
 ## Themes

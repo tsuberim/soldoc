@@ -152,15 +152,6 @@ const soldoc = (options) => {
                         ))
                 );
             }
-        })
-        .then(x => {
-            log('success','Done.');
-            process.exit(0);
-        })
-        .catch(err => {
-            log('error', 'An error occured!')
-            log('error',err.stack);
-            process.exit(1);
         });
 };
 soldoc.defaults = {

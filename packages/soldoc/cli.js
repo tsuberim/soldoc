@@ -2,6 +2,8 @@
 
 const soldoc = require('./index.js');
 const yargs = require('yargs');
+const chalk = require('chalk');
+const shelljs = require('shelljs');
 
 const args = yargs
     .config('options')
@@ -53,6 +55,17 @@ const args = yargs
     })
     .argv;
 
+const log = (tag,...objs) => {
+    const color = {
+        info: 'magenta',
+        warn: 'yellow',
+        error: 'red',
+        success: 'green',
+    };
+
+    shelljs.echo(chalk`{gray ${new Date().toISOString()}} {blue soldoc} {${color[tag] || 'gray'} ${tag}}: ${objs}`);
+};
+
 const opts = {
     in: args.in,
     out: args.out,
@@ -62,4 +75,13 @@ const opts = {
     repoUrl: args['repo-url'],
     log: args.log
 };
-soldoc(opts);
+soldoc(opts)
+    .then(x => {
+        log('success','Done.');
+        process.exit(0);
+    })
+    .catch(err => {
+        log('error', 'An error occured!')
+        log('error',err.stack);
+        process.exit(1);
+    });
