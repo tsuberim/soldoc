@@ -2,22 +2,7 @@
   "contracts/BugsBunny.sol": {
     "BugsBunny": {
       "constructor": null,
-      "events": {
-        "OwnershipTransferred(address,address)": {
-          "anonymous": false,
-          "name": "OwnershipTransferred",
-          "params": {
-            "previousOwner": {
-              "indexed": true,
-              "type": "address"
-            },
-            "newOwner": {
-              "indexed": true,
-              "type": "address"
-            }
-          }
-        }
-      },
+      "events": {},
       "fallback": null,
       "methods": {
         "doesEat(string)": {
@@ -40,40 +25,12 @@
           "details": "String comparison may be inefficient",
           "return": "true if Bugs will eat it, false otherwise",
           "notice": "Determine if Bugs will accept `(_food)` to eat"
-        },
-        "owner()": {
-          "constant": true,
-          "name": "owner",
-          "outputs": {
-            "output_0": {
-              "type": "address"
-            }
-          },
-          "payable": false,
-          "stateMutability": "view",
-          "params": {},
-          "executionCost": 526
-        },
-        "transferOwnership(address)": {
-          "constant": false,
-          "name": "transferOwnership",
-          "outputs": {},
-          "payable": false,
-          "stateMutability": "nonpayable",
-          "params": {
-            "newOwner": {
-              "type": "address",
-              "details": "The address to transfer ownership to."
-            }
-          },
-          "details": "Allows the current owner to transfer control of the contract to a newOwner.",
-          "executionCost": 22788
         }
       },
       "author": "Warned Bros",
       "title": "A simulator for Bug Bunny, the most famous Rabbit",
-      "executionCost": 20502,
-      "deploymentCost": 105000
+      "executionCost": 94,
+      "deploymentCost": 49600
     }
   }
 }

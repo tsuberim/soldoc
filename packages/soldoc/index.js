@@ -5,6 +5,7 @@ const path = require('path');
 const solc = require('solc');
 const assign = require('deep-assign');
 const validUrl = require('valid-url');
+const chalk = require('chalk')
 
 const compile = data =>
     new Promise((resolve,reject) => {
@@ -69,25 +70,22 @@ const clean = data => {
     return out;
 };
 
-const extract = (data,files) =>
-    compile(data)
-        .then(result =>
-            Object.keys(result.contracts).reduce((acc,contract) => {
-                const split = contract.split(':');
-                const file = split[0];
-                const name = split[1];
-                if(files.indexOf(file) !== -1)
-                    return {
-                        ...acc,
-                        [file]: {
-                            ...(acc[file] || {}),
-                            [name]: clean(result.contracts[contract])
-                        }
-                    }
-                else
-                    return acc;
-            },{})
-        );
+const extract = (result,files) =>
+    Object.keys(result.contracts).reduce((acc,contract) => {
+        const split = contract.split(':');
+        const file = split[0];
+        const name = split[1];
+        if(files.indexOf(file) !== -1)
+            return {
+                ...acc,
+                [file]: {
+                    ...(acc[file] || {}),
+                    [name]: clean(result.contracts[contract])
+                }
+            }
+        else
+            return acc;
+    },{})
 
 const soldoc = (options) => {
     const opts = assign({},soldoc.defaults,JSON.parse(JSON.stringify(options)));
@@ -95,7 +93,19 @@ const soldoc = (options) => {
         opts.theme = require(opts.theme);
     }
 
-    const info = (...msgs) => opts.quiet ? null : shelljs.echo(...msgs.map(x => typeof x === 'string' ? x : JSON.stringify(x,undefined,2)));
+    const log = (tag,...objs) => {
+        const color = {
+            info: 'magenta',
+            warn: 'yellow',
+            error: 'red',
+            success: 'green',
+        };
+
+        if(!opts.quiet)
+            shelljs.echo(chalk`{gray ${new Date().toISOString()}} {blue soldoc} {${color[tag] || 'gray'} ${tag}}: ${objs}`);
+        if(opts.log)
+            fse.appendFile(opts.log,`${new Date().toISOString()}, ${JSON.stringify(objs)}`)
+    };
 
     try{
         if(!opts.repoUrl){
@@ -105,18 +115,23 @@ const soldoc = (options) => {
                     opts.repoUrl = package.repository.url.replace('.git','');
                 else if(typeof package.repository === 'string' && (validUrl.isHttpUri(package.repository) || validUrl.isHttpsUri(package.repository)))
                     opts.repoUrl = package.repository.replace('.git','');
-            info(`Detected repoUrl '${opts.repoUrl}'`);
+            log('info',`Detected repoUrl '${opts.repoUrl}'`);
         }
     } catch(e) {}
 
-    const files = shelljs.find(opts.in).filter(f => path.extname(f) === '.sol');
-    info(`Found ${files.length} files:`,files);
-    return Promise.all(files.map(f => fse.readFile(f,'utf8').then(content => ({[f]: content}))))
+    let files;
+    return new Promise((resolve,reject) => {
+            files = shelljs.find(opts.in).filter(f => path.extname(f) === '.sol');
+            log('info',`Found ${files.length} file(s): ${files}`);
+            resolve(files);
+        })
+        .then(files => Promise.all(files.map(f => fse.readFile(f,'utf8').then(content => ({[f]: content})))))
         .then(arr => arr.reduce((acc,content) => ({...acc, ...content}),{}))
-        .then(data => {info(`Extracting files...`); return extract(data,files);})
+        .then(data => {log('info','Compiling contracts...'); return compile(data);})
+        .then(compiled => {log('info',`Extracting files...`); return extract(compiled,files);})
         .then(extracted => {
             if(opts.json){
-                info(`Writing extracted info to '${opts.json}'...`);
+                log('info',`Writing extracted info to '${opts.json}'...`);
                 return fse.writeFile(opts.json,JSON.stringify(extracted,undefined,2),'utf8');
             }
             else{
@@ -126,16 +141,25 @@ const soldoc = (options) => {
                         Promise.all(
                             Object.keys(extracted[f])
                                 .map(contract => {
-                                    info(`Rendering '${f}':${contract}...`);
+                                    log('info',`Rendering '${f}':${contract}...`);
                                     const result = opts.theme(f,contract,extracted[f][contract],{...opts[opts.theme], repoUrl: opts.repoUrl});
                                     const where = path.resolve(opts.out,path.relative(opts.in,path.dirname(f)),`${contract}${result.extension}`);
-                                    info(`Writing result to '${where}'`);
+                                    log('info',`Writing result to '${where}'`);
                                     shelljs.mkdir('-p',path.dirname(where));
                                     return fse.writeFile(where,result.content,'utf8');
                                 })
                         ))
                 );
             }
+        })
+        .then(x => {
+            log('success','Done.');
+            process.exit(0);
+        })
+        .catch(err => {
+            log('error', 'An error occured!')
+            log('error',err.stack);
+            process.exit(1);
         });
 };
 soldoc.defaults = {
@@ -143,8 +167,9 @@ soldoc.defaults = {
     out: './docs',
     // json: undefined,
     // repoUrl: undefined,
+    // log: undefined,
     quiet: false,
-    theme: '@soldoc/markdown'
+    theme: '@soldoc/markdown',
 };
 
 module.exports = soldoc;

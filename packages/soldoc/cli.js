@@ -43,6 +43,12 @@ const args = yargs
             desc: 'Specifies remote repository url. Uses `repository` field in `package.json` if available and not specified.',
             type: 'string',
             default: soldoc.defaults.repoUrl
+        },
+        'log': {
+            alias: 'l',
+            desc: 'Specifies the location the log file should be written to.',
+            type: 'string',
+            default: soldoc.defaults.log
         }
     })
     .argv;
@@ -53,14 +59,7 @@ const opts = {
     json: args.json,
     quiet: args.quiet,
     theme: args.theme,
-    repoUrl: args['repo-url']
+    repoUrl: args['repo-url'],
+    log: args.log
 };
-soldoc(opts)
-    .then(result => {
-        console.log('Done.');
-    })
-    .catch(err =>{
-        console.error('An error occured:');
-        console.error(err.stack);
-        process.exit(1);
-    });
+soldoc(opts);
