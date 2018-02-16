@@ -103,6 +103,7 @@ const soldoc = (options) => {
 
         if(opts.log)
             fse.appendFileSync(opts.log,`${new Date().toISOString()} soldoc ${tag}: ${objs}\n`);
+
         if(!opts.quiet)
             shelljs.echo(chalk`{gray ${new Date().toISOString()}} {blue soldoc} {${color[tag] || 'gray'} ${tag}}: ${objs}`);
     };
