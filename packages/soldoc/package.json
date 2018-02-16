@@ -29,6 +29,7 @@
   "dependencies": {
     "@soldoc/markdown": "^0.1.0",
     "deep-assign": "^2.0.0",
+    "fs-extra": "^5.0.0",
     "shelljs": "^0.8.1",
     "solc": "^0.4.19",
     "valid-url": "^1.0.9",

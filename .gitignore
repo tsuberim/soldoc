@@ -1,3 +1,3 @@
 node_modules
 packages/*/node_modules
-soldoc.code-workspace
+*.code-workspace
