@@ -87,6 +87,13 @@ options.json
 
 ## Contribute
 
+Get started:
+
+1. `git clone git@github.com:dev-matan-tsuberi/soldoc.git && cd soldoc`
+2. `yarn`
+3. `yarn lerna bootstrap`
+4. Done.
+
 **Note**: This project is managed as a **monorepo** and uses [lerna.js](https://lernajs.io/).
 
 This project needs contributors!
