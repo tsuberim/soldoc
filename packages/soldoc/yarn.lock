@@ -2,10 +2,6 @@
 # yarn lockfile v1
 
 
-"@soldoc/markdown@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@soldoc/markdown/-/markdown-0.1.0.tgz#9f85be75049af9721b5129f133d52dafbf5f671e"
-
 ansi-regex@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-2.1.1.tgz#c3b33ab5ee360d86e0e628f0468ae7ef27d654df"
