@@ -7,14 +7,23 @@ const assign = require('deep-assign');
 const validUrl = require('valid-url');
 const chalk = require('chalk')
 
-const compile = data =>
+const compile = (log,data) =>
     new Promise((resolve,reject) => {
         const result = solc.compile({sources: data},1,file => {
             const node_path = path.resolve('node_modules',file);
             return {contents: fs.readFileSync(fs.existsSync(node_path) ? node_path : file, 'utf-8')};
         });
-        if(result.errors)
-            reject(new Error(result.errors));
+        if(result.errors){
+            const errors = result.errors.filter(x => x.toLowerCase().includes('error'));
+            const warnings = result.errors.filter(x => x.toLowerCase().includes('warning'));
+
+            if(warnings.length)
+                log('warn', `Detected ${warnings.length} warnings while compiling!`);
+
+            if(errors.length)
+                reject(new Error(errors));
+        }
+
         resolve(result);
     })
 
@@ -128,7 +137,7 @@ const soldoc = (options) => {
         })
         .then(files => Promise.all(files.map(f => fse.readFile(f,'utf8').then(content => ({[f]: content})))))
         .then(arr => arr.reduce((acc,content) => ({...acc, ...content}),{}))
-        .then(data => {log('info','Compiling contracts...'); return compile(data);})
+        .then(data => {log('info','Compiling contracts...'); return compile(log,data);})
         .then(compiled => {log('info',`Extracting files...`); return extract(compiled,files);})
         .then(extracted => {
             if(opts.json){
